@@ -33,8 +33,8 @@ const style = {
 const Card = ({ employee }) => (
     <div style={style.cardContainer}>
         <h2 style={style.textStyle}>{employee.name.first} {employee.name.last}</h2>
+        <p><strong>Location:  {employee.location.city},  {employee.location.state}</strong></p>
         <img style={style.imgStyle} src={employee.picture.large} alt="" />
-        <p>{employee.location.city},  {employee.location.state}</p>
         <p>{employee.email}</p>
     </div>
 )

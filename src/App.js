@@ -19,7 +19,7 @@ class App extends Component {
       searchField: "",
       people: []
     };
-  }
+  };
 
   componentDidMount() {
     const getPeople = async () => {
@@ -27,26 +27,28 @@ class App extends Component {
       this.setState({ people: results })
     }
     getPeople()
-  }
+  };
 
   handleChange = (e) => {
     this.setState({ searchField: e.target.value });
-  }
+  };
 
   render() {
     const { people, searchField } = this.state;
-    const sortedPeople = people.sort((a, b) => {
-      
-    })
     const filteredEmployees = people.filter(employee => employee.name.first.toLowerCase().includes(searchField.toLowerCase()));
 
     return (
       <div style={style} className="App">
         <Heading />
         <SearchBar
-        placeholder=""
-        handleChange={this.handleChange} />
-        <CardList people={filteredEmployees} />
+          placeholder=""
+          handleChange={this.handleChange}
+          people={filteredEmployees}
+          data={this.setState}
+        />
+        <CardList
+          people={filteredEmployees}
+        />
       </div>
     )
   }
