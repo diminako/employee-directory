@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 
-class Card extends React.Component {
+class SearchBar extends React.Component {
     render() {
         return (
         <>
 
-        <h2>Hello!</h2>
+        <input type="text"/>
 
         </>
         )
     }
 };
 
-export default Card;
+export default SearchBar;
