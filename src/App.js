@@ -9,8 +9,9 @@ import { get } from 'axios';
 class App extends Component {
   constructor() {
     super();
+
     this.state = {
-      search: "",
+      searchField: "",
       people: []
     };
   }
@@ -23,14 +24,21 @@ class App extends Component {
     getPeople()
   }
 
+  handleChange = (e) => {
+    this.setState({ searchField: e.target.value });
+  }
 
   render() {
-    const { people } = this.state;
+    const { people, searchField } = this.state;
+    const filteredEmployees = people.filter(employee => employee.name.first.toLowerCase().includes(searchField.toLowerCase()));
+
     return (
       <div className="App">
         <Heading />
-        <SearchBar />
-        <CardList people={people} />
+        <SearchBar
+        placeholder=""
+        handleChange={this.handleChange} />
+        <CardList people={filteredEmployees} />
       </div>
     )
   }
