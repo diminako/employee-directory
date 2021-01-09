@@ -6,6 +6,11 @@ import SearchBar from "./components/SearchBar";
 import './App.css';
 import { get } from 'axios';
 
+const style = {
+  padding: "20px",
+  color: "#e7e7de"
+}
+
 class App extends Component {
   constructor() {
     super();
@@ -33,7 +38,7 @@ class App extends Component {
     const filteredEmployees = people.filter(employee => employee.name.first.toLowerCase().includes(searchField.toLowerCase()));
 
     return (
-      <div className="App">
+      <div style={style} className="App">
         <Heading />
         <SearchBar
         placeholder=""

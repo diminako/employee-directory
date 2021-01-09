@@ -1,6 +1,17 @@
 .App {
   text-align: center;
+  background: linear-gradient(338deg, #1a5546, #15466b);
+    background-size: 400% 400%;
+
+    animation: AnimationName 10s ease infinite;
 }
+
+@keyframes AnimationName {
+    0%{background-position:24% 0%}
+    50%{background-position:77% 100%}
+    100%{background-position:24% 0%}
+}
+
 
 .App-logo {
   height: 40vmin;
