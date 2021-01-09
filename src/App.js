@@ -35,6 +35,9 @@ class App extends Component {
 
   render() {
     const { people, searchField } = this.state;
+    const sortedPeople = people.sort((a, b) => {
+      
+    })
     const filteredEmployees = people.filter(employee => employee.name.first.toLowerCase().includes(searchField.toLowerCase()));
 
     return (

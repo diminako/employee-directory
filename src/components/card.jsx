@@ -24,7 +24,10 @@ const style = {
     },
     textStyle: {
         textDecoration: "underline"
-    }    
+    },
+    buttonStyle: {
+        boxShadow: "2px 2px 4px #000000"
+    }
 };
 
 const Card = ({ employee }) => (
