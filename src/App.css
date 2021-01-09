@@ -4,7 +4,7 @@
     background-size: 400% 400%;
 
     animation: AnimationName 10s ease infinite;
-    height: 100vh;
+    min-height:100vh
 }
 
 @keyframes AnimationName {
