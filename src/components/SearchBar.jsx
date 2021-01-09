@@ -1,15 +1,13 @@
 import React, { Component } from "react";
 
-class SearchBar extends React.Component {
-    render() {
-        return (
-        <>
-
-        <input type="text"/>
-
-        </>
-        )
-    }
-};
+const SearchBar = ({ placeholder, handleChange }) =>
+(
+    <input
+        className='search'
+        type='search'
+        placeholder={placeholder}
+        onChange={handleChange}
+    />
+)
 
 export default SearchBar;

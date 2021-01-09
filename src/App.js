@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Card from "./components/Card";
+// import Card from "./components/Card";
 import Heading from "./components/Heading";
 import CardList from "./components/CardList";
 import SearchBar from "./components/SearchBar";
@@ -18,7 +18,6 @@ class App extends Component {
   componentDidMount() {
     const getPeople = async () => {
       const { data: { results } } = await get('https://randomuser.me/api/?results=10&nat=us')
-      console.log(results)
       this.setState({ people: results })
     }
     getPeople()
@@ -28,16 +27,10 @@ class App extends Component {
   render() {
     const { people } = this.state;
     return (
-      <div className="App" >
+      <div className="App">
         <Heading />
         <SearchBar />
-        <CardList />
-
-
-
-
-
-        {/* {this.state.people.map(peep =>(<h1 key={peep.id} peep={peep}> {peep.name.first}</h1>))} */}
+        <CardList people={people} />
       </div>
     )
   }

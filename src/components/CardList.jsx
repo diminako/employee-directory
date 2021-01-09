@@ -1,18 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import Card from "./Card"
 
-class CardList extends React.Component {
-    render() {
-        return (
-            <>
-                <ul>
-                    <Card />
-
-                </ul>
-
-            </>
-        )
-    }
+const CardList = ({ people }) => {
+    return (
+        <>
+            {people.map((employee) => <Card key={people.id} employee={employee} />)}
+            {/* {console.log(people)} */}
+        </>
+    )
 };
 
 export default CardList;
