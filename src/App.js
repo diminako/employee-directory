@@ -17,7 +17,7 @@ class App extends Component {
 
   componentDidMount() {
     const getPeople = async () => {
-      const { data: { results } } = await get('https://randomuser.me/api/?results=10&nat=us')
+      const { data: { results } } = await get('https://randomuser.me/api/?results=20&nat=us')
       this.setState({ people: results })
     }
     getPeople()
