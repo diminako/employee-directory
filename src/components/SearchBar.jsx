@@ -15,17 +15,10 @@ const style = {
     }
 }
 
-const SearchBar = ({ placeholder, handleChange, people, data }) => {
-
-    const sortByFirst = people.sort( (a,b) => a.name.first - b.name.first);
+const SearchBar = ({ placeholder, handleChange }) => {
 
     return (
         <div style={style.margin}>
-            <button
-                style={style.buttonStyle}
-                onClick={()=> data({ people: sortByFirst })}>
-                Sort First Name
-                </button>
             <input
                 style={style.inputStyle}
                 className='search'
@@ -33,10 +26,6 @@ const SearchBar = ({ placeholder, handleChange, people, data }) => {
                 placeholder={placeholder}
                 onChange={handleChange}
             />
-            <button
-                style={style.buttonStyle}>
-                Sort Last Name
-            </button>
         </div>
     )
 }

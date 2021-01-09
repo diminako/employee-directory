@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Heading from "./components/Heading";
 import CardList from "./components/CardList";
 import SearchBar from "./components/SearchBar";
+import SortButtons from "./components/SortButtons";
 import './App.css';
 import { get } from 'axios';
 
@@ -33,6 +34,14 @@ class App extends Component {
     this.setState({ searchField: e.target.value });
   };
 
+  sortFirst = (e) => {
+    this.setState({ people: e })
+  }
+
+  sortLast = (e) => {
+    this.setState({ people: e })
+  }
+
   render() {
     const { people, searchField } = this.state;
     const filteredEmployees = people.filter(employee => employee.name.first.toLowerCase().includes(searchField.toLowerCase()));
@@ -43,9 +52,12 @@ class App extends Component {
         <SearchBar
           placeholder=""
           handleChange={this.handleChange}
+          />
+          <SortButtons 
           people={filteredEmployees}
-          data={this.setState}
-        />
+          sortFirst={this.sortFirst}
+          sortLast={this.sortLast}
+          />
         <CardList
           people={filteredEmployees}
         />
