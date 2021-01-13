@@ -2,20 +2,31 @@ import React from "react";
 import Card from "./Card"
 
 const style = {
-    cardlist: {
-        width: "85 vw",
-        margin: "0 auto",
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr 1fr 1fr",
-        gridGap: "20px",
-        justifyContent: "center"
+    pad: {
+        padding: "5px"
     }
 }
 
 const CardList = ({ people }) => {
     return (
-        <div style={style.cardlist}>
-            {people.map((employee) => <Card key={employee.id.value} employee={employee} />)}
+        <div
+        // style={style.cardlist}
+        >
+            <table className="table table-success table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Pic</th>
+                        <th scope="col">Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {people.map((employee) => <tr ><Card key={employee.id.value} employee={employee} /></tr>)}
+                </tbody>
+
+            </table>
+
         </div>
     )
 };

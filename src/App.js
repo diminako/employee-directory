@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import Card from "./components/Card";
 import Heading from "./components/Heading";
 import CardList from "./components/CardList";
 import SearchBar from "./components/SearchBar";
@@ -8,7 +7,7 @@ import './App.css';
 import { get } from 'axios';
 
 const style = {
-  padding: "20px",
+  margin: "0",
   color: "#e7e7de"
 }
 
@@ -24,7 +23,7 @@ class App extends Component {
 
   componentDidMount() {
     const getPeople = async () => {
-      const { data: { results } } = await get('https://randomuser.me/api/?results=20&nat=us')
+      const { data: { results } } = await get('https://randomuser.me/api/?results=20&nat=us');
       this.setState({ people: results })
     }
     getPeople()
@@ -47,21 +46,23 @@ class App extends Component {
     const filteredEmployees = people.filter(employee => employee.name.first.toLowerCase().includes(searchField.toLowerCase()));
 
     return (
-      <div style={style} className="App">
-        <Heading />
-        <SearchBar
-          placeholder=""
-          handleChange={this.handleChange}
+      < >
+        <div style={style} className="App">
+          <Heading />
+          <SearchBar
+            placeholder=""
+            handleChange={this.handleChange}
           />
-          <SortButtons 
-          people={filteredEmployees}
-          sortFirst={this.sortFirst}
-          sortLast={this.sortLast}
+          <SortButtons
+            people={filteredEmployees}
+            sortFirst={this.sortFirst}
+            sortLast={this.sortLast}
           />
-        <CardList
-          people={filteredEmployees}
-        />
-      </div>
+          <CardList
+            people={filteredEmployees}
+          />
+        </div>
+      </>
     )
   }
 };
